@@ -16,8 +16,9 @@ public class Pedido {
     @ManyToOne
     private Cliente cliente;
     //Anotação de relacionamento bidirecional entre pedido e item
-    @OneToMany(mappedBy = "pedido")
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<ItemPedido> itens = new ArrayList<>();
+    @Column(name = "valor_total")
     private BigDecimal valorTotal;
 
     public Pedido(Cliente cliente) {
