@@ -19,7 +19,7 @@ public class Pedido {
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<ItemPedido> itens = new ArrayList<>();
     @Column(name = "valor_total")
-    private BigDecimal valorTotal;
+    private BigDecimal valorTotal = BigDecimal.ZERO;
 
     public Pedido(Cliente cliente) {
         this.cliente = cliente;
@@ -31,6 +31,7 @@ public class Pedido {
         //item conhece pedido e pedido conhece item
         item.setPedido(this);
         this.itens.add(item);
+        this.valorTotal = this.valorTotal.add(item.getValor());
     }
     public Long getId() {
         return id;

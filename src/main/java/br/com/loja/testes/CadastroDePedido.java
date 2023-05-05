@@ -21,8 +21,8 @@ public class CadastroDePedido {
         ProdutoDao produtoDao = new ProdutoDao(entityManager);
         ClienteDao clienteDao = new ClienteDao(entityManager);
 
-        Produto produto = produtoDao.buscarPorId(11l);
-        Cliente cliente = clienteDao.buscarPorId(1l);
+        Produto produto = produtoDao.buscarPorId(2l);
+        Cliente cliente = clienteDao.buscarPorId(2l);
 
         entityManager.getTransaction().begin();
 

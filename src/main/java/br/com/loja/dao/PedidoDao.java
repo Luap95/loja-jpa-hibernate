@@ -43,5 +43,10 @@ public class PedidoDao {
         return entityManager.createQuery(jpql, Pedido.class).getResultList();
     }
 
+    public BigDecimal valorTotalVendido(){
+        //Consulta com função de agregação
+        String jpql = "SELECT SUM(p.valorTotal) FROM Pedido p";
+        return entityManager.createQuery(jpql, BigDecimal.class).getSingleResult();
+    }
 
 }

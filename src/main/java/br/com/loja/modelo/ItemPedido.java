@@ -65,4 +65,8 @@ public class ItemPedido {
     public void setPedido(Pedido pedido) {
         this.pedido = pedido;
     }
+
+    public BigDecimal getValor(){
+        return this.precoUnitario.multiply(new BigDecimal(this.quantidade));
+    }
 }
