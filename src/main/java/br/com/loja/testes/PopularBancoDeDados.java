@@ -14,12 +14,20 @@ import java.math.BigDecimal;
 public abstract class PopularBancoDeDados {
 
     public static void cadastroProduto(){
-        Categoria categoria = new Categoria("LIVROS");
+        Categoria livros = new Categoria("LIVRO");
+        Categoria celular = new Categoria("CELULAR");
+        Categoria eletronico = new Categoria("ELETRONICO");
 
-        Produto produto = new Produto("As crônicas de Narnia", "Fantasia",
-                new BigDecimal("120.45"), categoria);
+        Produto narnia = new Produto("As crônicas de Narnia", "Fantasia",
+                new BigDecimal("120.45"), livros);
+        Produto xiaomi = new Produto("Xiaomi Redmi Note 9", "Smartphone",
+                new BigDecimal("848.99"), celular);
+        Produto nintendo = new Produto("Nintendo Switch", "Video game",
+                new BigDecimal("2500.00"), eletronico);
 
-        Cliente cliente = new Cliente("Lucas", "123456789");
+        Cliente lucas = new Cliente("Lucas", "123456789");
+        Cliente fabiola = new Cliente("Fabíola", "44445555411");
+        Cliente michael = new Cliente("Michael", "44555123321");
 
 
         EntityManager entityManager = JPAUtil.getEntityManager();
@@ -29,9 +37,18 @@ public abstract class PopularBancoDeDados {
         ClienteDao clienteDao = new ClienteDao(entityManager);
 
         entityManager.getTransaction().begin();
-        categoriaDao.cadastrar(categoria);
-        produtoDao.cadastrar(produto);
-        clienteDao.cadastrar(cliente);
+        categoriaDao.cadastrar(livros);
+        categoriaDao.cadastrar(celular);
+        categoriaDao.cadastrar(eletronico);
+
+        produtoDao.cadastrar(narnia);
+        produtoDao.cadastrar(xiaomi);
+        produtoDao.cadastrar(nintendo);
+
+        clienteDao.cadastrar(lucas);
+        clienteDao.cadastrar(fabiola);
+        clienteDao.cadastrar(michael);
+
         entityManager.getTransaction().commit();
 
         entityManager.close();

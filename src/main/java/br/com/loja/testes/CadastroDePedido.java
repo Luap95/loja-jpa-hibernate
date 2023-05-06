@@ -15,14 +15,14 @@ public class CadastroDePedido {
 
     public static void main(String[] args) {
 
-        PopularBancoDeDados.cadastroProduto();
+//        PopularBancoDeDados.cadastroProduto();
 
         EntityManager entityManager = JPAUtil.getEntityManager();
         ProdutoDao produtoDao = new ProdutoDao(entityManager);
         ClienteDao clienteDao = new ClienteDao(entityManager);
 
-        Produto produto = produtoDao.buscarPorId(2l);
-        Cliente cliente = clienteDao.buscarPorId(2l);
+        Produto produto = produtoDao.buscarPorId(10l);
+        Cliente cliente = clienteDao.buscarPorId(12l);
 
         entityManager.getTransaction().begin();
 

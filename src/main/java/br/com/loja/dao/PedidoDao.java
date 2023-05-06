@@ -1,7 +1,7 @@
 package br.com.loja.dao;
 
 import br.com.loja.modelo.Pedido;
-import br.com.loja.modelo.Produto;
+import br.com.loja.vo.RelatorioDeVendasVo;
 
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;
@@ -49,4 +49,17 @@ public class PedidoDao {
         return entityManager.createQuery(jpql, BigDecimal.class).getSingleResult();
     }
 
+    public List<RelatorioDeVendasVo> relatorioDeVendas(){
+        String jpql = "SELECT new br.com.loja.vo.RelatorioDeVendasVo("
+                + "produto.nome, "
+                + "SUM(item.quantidade), "
+                + "MAX(pedido.data)) "
+                + "FROM Pedido pedido "
+                + "JOIN pedido.itens item "
+                + "JOIN item.produto produto "
+                + "GROUP BY produto.nome "
+                + "ORDER BY item.quantidade DESC";
+
+        return entityManager.createQuery(jpql, RelatorioDeVendasVo.class).getResultList();
+    }
 }
