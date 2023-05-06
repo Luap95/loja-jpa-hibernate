@@ -13,7 +13,7 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDate data = LocalDate.now();
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Cliente cliente;
     //Anotação de relacionamento bidirecional entre pedido e item
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
