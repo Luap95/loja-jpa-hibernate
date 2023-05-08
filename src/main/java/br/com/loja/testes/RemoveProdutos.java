@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 public class RemoveProdutos {
     public static void main(String[] args) {
         //Instaciando produto e categoria
-        Categoria categoria = new Categoria("LIVRO");
+        Categoria categoria = new Categoria("LIVRO", "LIVRARIA");
         Produto produto = new Produto("As cronicas de Narnia", "Livro de fantasia",
                 new BigDecimal("99.99"), categoria);
         //Instanciando gerenciador de entidades do JPA

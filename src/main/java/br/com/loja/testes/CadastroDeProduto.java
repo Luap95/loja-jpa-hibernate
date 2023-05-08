@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 
 public class CadastroDeProduto {
     public static void main(String[] args) {
-        Categoria celulares = new Categoria("CELULARES");
+        Categoria celulares = new Categoria("CELULARES", "COMUNICAÇÃO");
 
         Produto celular = new Produto("Xiaomi Redmi Note 9", "Smartphone Xiaomi",
                 new BigDecimal("980.54"), celulares);

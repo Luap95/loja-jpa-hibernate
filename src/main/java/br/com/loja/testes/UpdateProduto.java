@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 
 public class UpdateProduto {
     public static void main(String[] args) {
-        Categoria categoria = new Categoria("INFORMATICA");
+        Categoria categoria = new Categoria("INFORMATICA", "TECNOLOGIA");
 
         Produto produto = new Produto("Teclado mecânico", "Teclado",
                 new BigDecimal("300.99"), categoria);

@@ -14,9 +14,9 @@ import java.math.BigDecimal;
 public abstract class PopularBancoDeDados {
 
     public static void cadastroProduto(){
-        Categoria livros = new Categoria("LIVRO");
-        Categoria celular = new Categoria("CELULAR");
-        Categoria eletronico = new Categoria("ELETRONICO");
+        Categoria livros = new Categoria("LIVRO", "LIVRARIA");
+        Categoria celular = new Categoria("CELULAR", "COMUNICACAO");
+        Categoria eletronico = new Categoria("ELETRONICO", "TECNOLOGIA");
 
         Produto narnia = new Produto("As crônicas de Narnia", "Fantasia",
                 new BigDecimal("120.45"), livros);
