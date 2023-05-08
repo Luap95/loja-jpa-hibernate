@@ -11,6 +11,7 @@ import java.util.List;
 
 public class TestaBuscaPorParametrosDinamicos {
     public static void main(String[] args) {
+
         EntityManager entityManager = JPAUtil.getEntityManager();
         ProdutoDao produtoDao = new ProdutoDao(entityManager);
 
