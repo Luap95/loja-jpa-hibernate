@@ -5,15 +5,15 @@ import javax.persistence.*;
 @Entity
 @Table(name = "clientes")
 public class Cliente {
+    @Embedded
+    private  DadosPessoais dadosPessoais;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
-    private String cpf;
+
 
     public Cliente(String nome, String cpf) {
-        this.nome = nome;
-        this.cpf = cpf;
+        this.dadosPessoais = new DadosPessoais(nome, cpf);
     }
     public Cliente(){}
 
@@ -26,27 +26,27 @@ public class Cliente {
     }
 
     public String getNome() {
-        return nome;
+        return this.dadosPessoais.getNome();
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.dadosPessoais.setNome(nome);
     }
 
     public String getCpf() {
-        return cpf;
+        return this.dadosPessoais.getCpf();
     }
 
     public void setCpf(String cpf) {
-        this.cpf = cpf;
+        this.dadosPessoais.setCpf(cpf);
     }
 
     @Override
     public String toString() {
         return "Cliente{" +
                 "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", cpf='" + cpf + '\'' +
+                ", nome='" + dadosPessoais.getNome() + '\'' +
+                ", cpf='" + dadosPessoais.getCpf() + '\'' +
                 '}';
     }
 }
